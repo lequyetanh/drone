@@ -1,0 +1,183 @@
+<div class="main">
+    <div class="banner"><img src="assets/image/drone-banner.jpg" alt="" /></div>
+  
+    <div class="bar">
+      <!-- =========================================header============================================ -->
+      <input type="checkbox" hidden class="checkbox-persudo" name="menu" id="menu-icon-id" />
+      <label for="menu-icon-id" class="menu-icon center">
+        <img style="width: 32%" src="assets/image/icon-menu.png" alt="icon-menu" />
+      </label>
+      <label for="menu-icon-id" class="overlay"></label>
+      <div class="nav-bar">
+        <div class="nav-bar-items" (click)="viewListDrone(true)">
+          Select Device
+        </div>
+        <div class="nav-bar-items" (click)="getLocation()">
+          Take off and land
+        </div>
+        <div class="nav-bar-items" (click)="executeMisson()">
+          Fly mission and back
+        </div>
+        <div class="nav-bar-items" (click)="executeMissonNorl()">
+          Fly mission and not back
+        </div>
+      </div>
+      <div class="log-out-icon center">
+        <img style="width: 32%" src="assets/image/logout.png" alt="log-out-icon" />
+      </div>
+      <!-- =========================================end-header============================================ -->
+      <!-- =========================================side-bar-left============================================ -->
+      <div class="side-bar">
+        <hr />
+        <label>
+          <h4>Device</h4>
+        </label>
+        <label for="menu-icon-id" class="side-bar-items" (click)="addNewDrone()">Add New Drone</label>
+        <label for="menu-icon-id" class="side-bar-items" (click)="viewListAllDrone()">View List Drone</label>
+        <label for="menu-icon-id" class="side-bar-items" (click)="getCurrentLocation()">Get Current Position All Drone</label>
+        <label for="menu-icon-id" class="side-bar-items" (click)="TakeOffAndLandAllDroneFree()">Take Off And Land All Drone Free</label>
+        <label for="menu-icon-id" class="side-bar-items" (click)="startCreateMissionByClick()">Set Up Mission By Click On Map</label>
+        <label for="menu-icon-id" class="side-bar-items" (click)="startCreateMissionByType()">Set Up Mission By Typing Point</label>
+        <label for="menu-icon-id" class="side-bar-items" (click)="clearMission()">Clear Mission</label>
+        <label for="menu-icon-id" class="side-bar-items" (click)="clearMap()">Clear Map</label>
+        <hr />
+        <label>
+          <h4>Customer</h4>
+        </label>
+        <label for="menu-icon-id" class="side-bar-items">Add New Customer</label>
+        <label for="menu-icon-id" class="side-bar-items">View Customer</label>
+      </div>
+      <!-- =========================================end-side-bar-left============================================ -->
+    </div>
+  
+    <!-- =========================================content============================================ -->
+    <div class="content">
+      <div class="controller">
+        <div class="row">Device Selected Information:</div>
+        <div class="device-infor">
+          <div class="row">
+            <div class="col">
+              <label>Name:</label>
+              <input type="text" [value]="droneSelected ? droneSelected?.drone_name : ''" readonly />
+            </div>
+            <div class="col">
+              <label>Serial No:</label>
+              <input type="text" [value]="droneSelected ? droneSelected?.serial_no : ''" readonly />
+            </div>
+            <div class="col">
+              <label>Manufacturer:</label>
+              <input type="text" [value]="droneSelected ? droneSelected?.manufacturer_id : ''" readonly />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>Max speed(m/s):</label>
+              <input type="text" [value]="droneSelected ? droneSelected?.max_speed : ''" readonly />
+            </div>
+            <div class="col">
+              <label>Max height (m):</label>
+              <input type="text" [value]="droneSelected ? droneSelected?.max_height : ''" readonly />
+            </div>
+            <div class="col">
+              <label>Max package (kg):</label>
+              <input type="text" [value]="
+                  droneSelected ? droneSelected?.maxWeightPackageDelivery : ''
+                " readonly />
+            </div>
+          </div>
+        </div>
+        <hr style="color: #ccc; margin: 10px 0" />
+        <div class="row">Action:</div>
+        <div class="device-infor">
+          <div class="col"></div>
+          <div class="row">
+            <div class="col" *ngIf="isFollowing">
+              <label>Battery (%):</label>
+              <input type="text" [ngModel]="battery" readonly />
+            </div>
+            <div class="col" *ngIf="!isFollowing">
+              <label>Current Latitude:</label>
+              <input type="text" [ngModel]="currentLatitude" readonly />
+            </div>
+            <div class="col" *ngIf="isFollowing">
+              <label>Alt (m):</label>
+              <input type="text" [ngModel]="altitude" readonly />
+            </div>
+            <div class="col" *ngIf="!isFollowing">
+              <label>Current Longitude:</label>
+              <input type="text" [ngModel]="currentLongitude" readonly />
+            </div>
+            <div class="col">
+              <label>Range:</label>
+              <input type="text" value="Device1" readonly />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>Status:</label>
+              <input type="text" [ngModel]="status" readonly />
+            </div>
+            <div *ngIf="!isCreateMissionByType" class="col" [ngStyle]="{'opacity': !isClickForSetUp ? 0 : 1}">
+              <label>Enter Alt(m):</label>
+              <input type="number" [(ngModel)]="altitudeSetting" />
+            </div>
+            <div *ngIf="isCreateMissionByType" class="col">
+              <label>Enter Latitude:</label>
+              <input type="text" [(ngModel)]="latPoint" />
+            </div>
+            <div *ngIf="!isCreateMissionByType" class="col" [ngStyle]="{'opacity': !isClickForSetUp ? 0 : 1}">
+              <label>Enter Speed(m/s):</label>
+              <input type="number" [(ngModel)]="speed" />
+            </div>
+            <div *ngIf="isCreateMissionByType" class="col">
+              <label>Enter Longitude:</label>
+              <input type="text" [(ngModel)]="longPoint" />
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col status">
+              <label>Status:</label>
+              <input
+                class="status-active"
+                type="text"
+                value="Following"
+                readonly
+              />
+              <input type="text" value="Starting" readonly />
+              <input type="text" value="Moving" readonly />
+              <input type="text" value="Landing" readonly />
+              <input type="text" value="Sussces" readonly />
+            </div>
+          </div> -->
+
+          
+
+
+          <div class="list-button">
+            <button style="margin-right: 0" (click)="clearMission()">
+              clearMission
+            </button>
+            <button style="margin-right: 0" (click)="clearMap()">
+             Clear Map
+            </button>
+            <button [hidden]="!isClickForSetUp" (click)="stopClick()">
+              Stop Click
+            </button>
+            <button *ngIf="isCreateMissionByType" (click)="addToMission()">Add To Mission</button>
+            <button *ngIf="!isConnected" (click)="connect()">Connect</button>
+            <button *ngIf="isConnected" (click)="disconnect()">Disconnect</button>
+            <!-- <button (click)="stopNow()">Stop Now</button>  -->
+            <button style="margin-right: 0" (click)="sendMission()">
+              Update Mission
+            </button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!droneSelected" class="controller cover" (click)="showMessage('Error', 'Please select Device.')"></div>
+  
+      <div class="wrapper-map">
+        <div id="mapDiv"></div>
+      </div>
+    </div>
+    <!-- =========================================end-content============================================ -->
+  </div>

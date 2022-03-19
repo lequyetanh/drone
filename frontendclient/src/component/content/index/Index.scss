@@ -1,0 +1,14 @@
+.men-thumb-item{
+  img{
+    width: 250px;
+    height: 300px;
+  }
+}
+
+.name-product{
+  width: 100%;
+  height: 80px;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

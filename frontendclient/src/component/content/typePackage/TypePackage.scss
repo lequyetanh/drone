@@ -1,0 +1,33 @@
+.page {
+
+  .previous,
+  .next {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid rgb(0, 0, 0);
+    outline: none;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(132, 137, 137);
+    }
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 95%;
+  }
+}
+
+.cursor-default{
+  cursor: default !important;
+}
+
+.button{
+  background-color:rgb(34, 128, 209);
+  padding: 15px 40px;
+}

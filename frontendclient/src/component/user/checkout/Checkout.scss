@@ -1,0 +1,23 @@
+.privacy-active{
+  border: 2px solid rgb(204, 23, 23);
+}
+
+.privacy-noactive{
+  display: none;
+}
+
+.resp-tabs-list{
+  li{
+    margin-bottom: 20px;
+  }
+}
+
+.check_box_agile{
+  .submit{
+    border: none;
+    outline: none;
+    padding: 20px 60px;
+    background-color:rgb(54, 134, 204);
+    font-size: 18px
+  }
+}

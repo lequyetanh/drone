@@ -1,0 +1,30 @@
+.wrapp{
+  margin-top: 100px !important;
+
+  .information{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .image{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40%;
+      height:auto;
+  
+      .dimension{
+        width: 250px;
+        height: 250px;
+        background-color:bisque;
+        border-radius: 50%;
+      }
+    }
+
+    .infor{
+      width: 60%;
+      height: auto;
+      // background-color:rgba(105, 97, 97, 0.432);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<div class="wrapper" *ngIf="user">
+    <div class="" *ngIf="user.checkOut != 1">
+        <div id="mapDiv"></div>
+        <div class="body">
+            <div class="information">
+                <!-- <div class="status" *ngIf="arrived == false && user.checkOut == 1">Status: 
+                    <span class="moving">Dang Chon Hang</span>
+                </div> -->
+                <div class="status" *ngIf="arrived == false && user.checkOut == 2">Status: 
+                    <span class="moving">Da Dat Hang, Dang Doi Admin Xac Nhan</span>
+                </div>
+                <div class="status" *ngIf="arrived == false && user.checkOut == 3">Status: 
+                    <span class="moving">Admin Da Xac Nhan, Dang Giao Hang</span>
+                </div>
+                <div class="status" *ngIf="arrived == true">Status: 
+                    <span class="arrived" (click)="confirm()">Hang Da Giao Toi, Xac Nhan lay don hang</span>
+                </div>
+                <div class="distant">khoang cach: {{distance}}</div>
+            </div>
+            <div class="user">
+                <div class="name">User: {{user.name}}</div>
+                <div class="address">Address: {{user.address}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="" style="text-align: center" *ngIf="user.checkOut == 1">
+        <h1>Chua Co Thong Tin Giao Hang</h1>
+    </div>
+</div>

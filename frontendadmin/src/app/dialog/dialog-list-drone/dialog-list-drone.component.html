@@ -1,0 +1,61 @@
+<!-- lay drone free -->
+<div class="wrapper" *ngIf="!data['status']">
+  <div class="header">
+    <label>List Drone Free</label>
+  </div>
+
+  <div class="body">
+    <div
+      class="row"
+      *ngFor="let drone of listDrone"
+      (click)="selectDrone(drone)"
+      [ngClass]="{ active: drone.id === droneSelected?.id }"
+    >
+      {{ drone.drone_name }}
+    </div>
+  </div>
+
+  <!-- List All Drone Free -->
+  <div class="footer" *ngIf="isSelectDrone">
+    <button style="margin-right: 12px" (click)="sendDrone()">Select</button>
+    <button mat-dialog-close>Cancel</button>
+  </div>
+  <!-- List All Drone -->
+  <div class="footer" *ngIf="!isSelectDrone">
+    <button style="margin-right: 12px" (click)="editDrone()">Edit</button>
+    <button style="margin-right: 12px" (click)="deleteDrone()">Delete</button>
+    <button mat-dialog-close>Cancel</button>
+  </div>
+</div>
+
+<!--       [lass.active]="idListDroneSelected.indexOf(drone.id)" -->
+
+<!-- lay tat ca drone -->
+<div class="wrapper" *ngIf="data['status']">
+  <div class="header">
+    <label>List Drone Free</label>
+  </div>
+
+  <div class="body">
+    <div
+      class="row"
+      *ngFor="let drone of listDrone"
+      (click)="selectDrone(drone)"
+      [ngClass]="{ active: drone.id === droneSelected?.id }"
+    >
+      {{ drone.drone_name }}
+    </div>
+  </div>
+
+    <!-- List All Drone Free -->
+  <div class="footer" *ngIf="isSelectDrone">
+    <button style="margin-right: 12px" (click)="sendDrone()">Select</button>
+    <button mat-dialog-close>Cancel</button>
+  </div>
+    <!-- List All Drone -->
+  <div class="footer" *ngIf="!isSelectDrone">
+    <button style="margin-right: 12px" (click)="editDrone()">Edit</button>
+    <button style="margin-right: 12px" (click)="deleteDrone()">Delete</button>
+    <button mat-dialog-close>Cancel</button>
+  </div>
+</div>

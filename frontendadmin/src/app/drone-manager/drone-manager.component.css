@@ -1,0 +1,244 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.main{
+    height: 100%;
+}
+
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    height: 36px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.bar{
+    display: flex;
+    background-color: #000;
+    color: #fff;
+    line-height: 36px;
+    font-weight: 600;
+}   
+
+.bar .nav-bar{
+    flex: 20;
+}
+
+.bar .menu-icon{
+    flex: 1;
+}
+
+.bar .menu-icon:hover{
+    cursor: pointer;
+}
+
+.bar .log-out-icon{
+    flex: 1;
+}
+
+.bar:hover{
+    cursor: pointer;
+}
+
+.banner img{
+    height: 36px;
+    width: 100%;
+    margin-bottom: -4px;
+}
+
+.nav-bar{
+    display: flex;
+    border: none;
+}
+
+.nav-bar-items{
+    border-left: solid 1px #fff;
+    border-right: solid 1px #fff;
+    text-align: center;
+    flex: 4;
+}
+
+.nav-bar-items:hover{
+    background-color: #fff;
+    color: #000;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.nav-bar-items:first-child{
+    border-left: none;
+}
+
+.nav-bar-items:last-child{
+    border-right: none;
+}
+
+.overlay{
+    position: absolute;
+    background-color: #000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.3;
+    display: none;
+    animation: fadeIn linear 0.3s;
+}
+
+
+.checkbox-persudo:checked ~ .overlay{
+    display: block;
+    z-index: 1;
+}
+
+.side-bar{
+    position: fixed;
+    top: 72px;
+    left: 0px;
+    bottom: 0;
+    right: 75%;
+    background-color: #fff;
+    transform: translateX(-108%);
+    transition: transform linear 0.3s;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.side-bar:hover{
+    cursor: default;
+}
+
+.side-bar-items{
+    width: 100%;
+    color: black;
+    display: block;
+    padding-left: 24px;
+    height: 36px;
+    border: solid 1px #ccc;
+    border-top:none;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+
+.side-bar-items:hover{
+    cursor: pointer;
+    background-color: #ccc;
+}
+
+.checkbox-persudo:checked ~ .side-bar{
+    transform: translateX(0);
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 0.3;
+    }
+}
+
+h4 {
+    padding-left: 8px;
+    border: solid 1px #ccc;
+    border-top:none;
+    box-sizing: border-box;
+    color: #000;
+}
+
+.content{
+    height: calc(100% - 72px);
+}
+
+.content .controller{
+    height: 244px;
+    padding: 12px 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0px;
+}
+
+.cover{
+    width: 100%;
+    margin-top: -244px;
+    opacity: 0.1;
+    z-index: 1;
+    background-color: #000;
+}
+
+.controller .row{
+    display: flex;
+    height: 28px;
+    width: 100%;
+    padding: 2px 0;
+}
+
+.controller .col{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.col input{
+    text-align: center;
+    height: 23px;
+    font-size: 16px;
+    border: solid 1px #ccc;
+    margin-left: 10px;
+}
+
+.col input:focus{
+    outline: none;
+}
+
+.col input:hover{
+    cursor: default;
+}
+
+.device-infor{
+    padding-right: 14%;
+}
+
+.wrapper-map {
+    height: calc(100% - 260px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.status-active{
+    background-color: greenyellow;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.status{
+    justify-content: center!important;
+}
+
+.status input{
+    margin-left: 40px;
+    width: 8rem;
+}
+
+.list-button{
+    height: 24px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+.list-button button{
+    font-size: 16px;
+    width: 132px;
+    margin: 0 10px;
+}

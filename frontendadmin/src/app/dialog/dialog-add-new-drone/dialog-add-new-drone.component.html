@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <div class="header">
+    <label *ngIf="!drone.id">Add New Drone</label>
+    <label *ngIf="drone.id">Edit New Drone</label>
+  </div>
+
+  <div class="body">
+    <div class="row">
+      <label>Name:</label>
+      <input [(ngModel)]="drone.droneName" type="text" />
+    </div>
+    <div class="row">
+      <label>Manufacturer:</label>
+      <select [(ngModel)]="drone.manufacturerId" name="cars" id="cars">
+        <option value="1">Volvo</option>
+        <option value="2">Saab</option>
+        <option value="3">Mercedes</option>
+        <option value="4">Audi</option>
+      </select>
+    </div>
+    <div class="row">
+      <label>Serial No:</label>
+      <input [(ngModel)]="this.drone.serialNo" type="text" />
+    </div>
+    <div class="row" style="display: block">
+      <label>Max weight package delivery (kg):</label>
+      <input
+        [(ngModel)]="drone.maxWeightPackageDelivery"
+        type="text"
+        style="margin-left: 138px; padding-top: 12px"
+      />
+    </div>
+    <div class="row">
+      <label>Max speed (m/s):</label>
+      <input [(ngModel)]="drone.maxSpeed" type="text" />
+    </div>
+    <div class="row">
+      <label>Max height (m):</label>
+      <input [(ngModel)]="drone.maxHeight" type="text" />
+    </div>
+    <div class="row">
+      <label>Status:</label>
+      <input [(ngModel)]="drone.status" type="text" />
+    </div>
+    <div class="row">
+      <label>Port: </label>
+      <input [(ngModel)]="drone.port" type="text" />
+    </div>
+    <div class="row" style="display: none">
+      <label>Id User: </label>
+      <input [(ngModel)]="drone.idUser" type="text"/>
+    </div>
+  </div>
+
+  <div class="footer">
+    <button style="margin-right: 12px" (click)="saveDrone()">Save</button>
+    <button mat-dialog-close>Cancel</button>
+  </div>
+</div>
